@@ -1,0 +1,4 @@
+{
+  "cmake.sourceDirectory": "${workspaceFolder}/all",
+  "cmake.installPrefix": "${workspaceFolder}/../_install",
+}
