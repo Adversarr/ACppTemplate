@@ -11,5 +11,6 @@ CTestTestfile.cmake
 _deps
 build
 _install
+.DS_Store
 .cache
 .vs

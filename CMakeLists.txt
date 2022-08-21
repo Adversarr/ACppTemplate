@@ -35,7 +35,7 @@ include(cmake/CPM.cmake)
 include(cmake/dependencies.cmake)
 
 # ---- Add source files ----
-set(PROJECT_MAIN_PREFIX "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}")
+set(PROJECT_MAIN_PREFIX "${PROJECT_SOURCE_DIR}")
 set(PROJECT_MAIN_INCLUDE_DIR "${PROJECT_MAIN_PREFIX}/include")
 set(PROJECT_MAIN_SOURCE_DIR "${PROJECT_MAIN_PREFIX}/src")
 
