@@ -14,3 +14,4 @@ _install
 .DS_Store
 .cache
 .vs
+out
