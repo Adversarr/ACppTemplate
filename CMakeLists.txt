@@ -3,10 +3,6 @@ project(ACppTemplate
   VERSION 0.0.1
   LANGUAGES CXX)
 
-project(ASDL
-  VERSION 0.0.1
-  LANGUAGES CXX)
-
 if(PROJECT_IS_TOP_LEVEL)
   message(NOTICE "Adding All Targets.")
   set(ROOT_PROJECT ${PROJECT_NAME})
