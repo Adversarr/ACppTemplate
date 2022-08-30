@@ -1,5 +1,4 @@
 #include <doctest/doctest.h>
-#include <acpptemplate/version.h>
 #include <ACppTemplate.h>
 
 #include <string>
