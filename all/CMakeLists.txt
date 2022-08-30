@@ -5,6 +5,7 @@ cmake_minimum_required(VERSION 3.14)
 
 project(BuildAll LANGUAGES CXX)
 
+set(ROOT_PROJECT ACppTemplate)
 include(../cmake/tools.cmake)
 
 # needed to generate test target
