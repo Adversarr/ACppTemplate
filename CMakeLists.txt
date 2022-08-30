@@ -3,14 +3,22 @@ project(ACppTemplate
   VERSION 0.0.1
   LANGUAGES CXX)
 
-if(LOG_LEVEL)
-  set(CMAKE_MESSAGE_LOG_LEVEL ${LOG_LEVEL})
+project(ASDL
+  VERSION 0.0.1
+  LANGUAGES CXX)
+
+if(PROJECT_IS_TOP_LEVEL)
+  message(NOTICE "Adding All Targets.")
+  set(ROOT_PROJECT ${PROJECT_NAME})
+  add_subdirectory(all)
+  return()
+endif()
+
+if(PROJECT_IS_TOP_LEVEL OR(ROOT_PROJECT STREQUAL PROJECT_NAME))
+  set(CMAKE_MESSAGE_LOG_LEVEL "DEBUG")
+  message(DEBUG "Enable Log Level -- Debug")
 else()
-  if(PROJECT_IS_TOP_LEVEL)
-    set(CMAKE_MESSAGE_LOG_LEVEL "DEBUG")
-  else()
-    set(CMAKE_MESSAGE_LOG_LEVEL "NOTICE")
-  endif()
+  set(CMAKE_MESSAGE_LOG_LEVEL "NOTICE")
 endif()
 
 set(CMAKE_CXX_STANDARD_REQUIRED 17)
@@ -72,6 +80,7 @@ else()
   message(NOTICE "Add Library ${PROJECT_NAME}")
   add_library(${PROJECT_NAME} STATIC ${headers} ${sources})
   set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17)
+
   # being a cross-platform target, we enforce standards conformance on MSVC
   target_compile_options(${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permissive->")
   target_include_directories(
@@ -96,7 +105,7 @@ packageProject(
   INCLUDE_DIR ${PROJECT_MAIN_INCLUDE_DIR}
   INCLUDE_DESTINATION include/${PROJECT_NAME}-${PROJECT_VERSION}
   DEPENDENCIES "" # "fmt 8.1.1;cxxopts 2.2.0"
-  
+
   # --- Parameters following are optional: ---
   # INCLUDE_HEADER_PATTERN "*.h"
   NAMESPACE ${PROJECT_NAME}
