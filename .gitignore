@@ -15,3 +15,6 @@ _install
 .cache
 .vs
 out
+cmake-build*
+.idea
+
